@@ -1,0 +1,90 @@
+site_name: IIASA ABM Calibration
+site_description: IIASA Macroeconomic Agent-Based Model Calibration from OECD Data
+site_url: https://ccolon.github.io/macro-abm-calibration/
+
+repo_name: ccolon/macro-abm-calibration
+repo_url: https://github.com/ccolon/macro-abm-calibration
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_source: true
+            show_root_heading: true
+            show_object_full_path: false
+            group_by_category: true
+            show_category_heading: true
+  - gen-files:
+      scripts:
+        - docs/gen_ref_pages.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+  - section-index
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Quick Start: getting-started/quickstart.md
+    - Configuration: getting-started/configuration.md
+  - User Guide:
+    - Workflow Overview: user-guide/workflow-overview.md
+    - Data Sources: user-guide/data-sources.md
+    - Processing Pipeline: user-guide/processing.md
+    - Country-Specific Processing: user-guide/country-specific-processing.md
+    - Model Calibration: user-guide/calibration.md
+    - Calibration Outputs: user-guide/outputs.md
+    - Pipeline Details:
+      - Raw Data Extraction: user-guide/pipelines/raw-data-extraction.md
+      - Currency Conversion: user-guide/pipelines/currency-conversion.md
+      - Data Harmonization: user-guide/pipelines/data-harmonization.md
+      - Industry Aggregation: user-guide/pipelines/industry-aggregation.md
+      - Parameter Estimation: user-guide/pipelines/parameter-estimation.md
+      - Initial Conditions: user-guide/pipelines/initial-conditions.md
+  - API Reference: reference/
+  - Examples:
+    - Complete Workflow: examples/complete-workflow.md
+    - Custom Processors: examples/custom-processors.md
+  - Development:
+    - Contributing: development/contributing.md
+    - Architecture: development/architecture.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
