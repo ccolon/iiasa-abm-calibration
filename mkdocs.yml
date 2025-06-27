@@ -28,6 +28,7 @@ theme:
     - search.highlight
     - search.share
     - content.code.copy
+  custom_dir: docs/overrides
 
 plugins:
   - search
@@ -56,10 +57,7 @@ nav:
     - Configuration: getting-started/configuration.md
   - User Guide:
     - Workflow Overview: user-guide/workflow-overview.md
-    - Data Sources: user-guide/data-sources.md
-    - Processing Pipeline: user-guide/processing.md
     - Country-Specific Processing: user-guide/country-specific-processing.md
-    - Model Calibration: user-guide/calibration.md
     - Calibration Outputs: user-guide/outputs.md
     - Pipeline Details:
       - Raw Data Extraction: user-guide/pipelines/raw-data-extraction.md
@@ -69,17 +67,15 @@ nav:
       - Parameter Estimation: user-guide/pipelines/parameter-estimation.md
       - Initial Conditions: user-guide/pipelines/initial-conditions.md
   - API Reference: reference/
-  - Examples:
-    - Complete Workflow: examples/complete-workflow.md
-    - Custom Processors: examples/custom-processors.md
-  - Development:
-    - Contributing: development/contributing.md
-    - Architecture: development/architecture.md
 
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
